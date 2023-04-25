@@ -36,7 +36,7 @@ int get_index_of_peak_element_bi_tonic_array(vector<int> & arr){
 int main(){
     vector<int> arr {3,5, 6,8,9,4,2,1};
     vector<int> arr1 {3,5, 6,8,9,10,2};
-    vector<int> arr2 {3,5, 6,8,9,10,11};
+        vector<int> arr2 {3,5, 6,8,9,10,11};
     cout << get_index_of_peak_element_bi_tonic_array(arr2) << endl;
 }
 
