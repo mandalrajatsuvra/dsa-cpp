@@ -1,5 +1,6 @@
 #include "iostream"
 #include "string"
+#include "bitset"
 using namespace std;
 template<class T>
 
@@ -20,6 +21,20 @@ struct Link{
             Link* next; };
 
 int main(){
+
+
+
+
+
+    bitset<10> bitset;
+
+    bitset.flip(9);
+
+    if(bitset[9]){
+        cout << "";
+    }
+
+
     cout << "Riya Biswas" << endl;
     Link link;
     cout << sizeof(link) << endl;

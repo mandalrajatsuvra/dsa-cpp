@@ -39,7 +39,6 @@ public:
         return g;
     }
 };
-
 int main(){
     Solution s;
     vector<vector<int>> edges = {
