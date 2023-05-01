@@ -42,8 +42,6 @@ public:
         return max_dist == 0? -1 : max_dist;
     }
 };
-
-
 int main(){
     Solution s;
     vector<vector<int>> grid {
@@ -52,6 +50,4 @@ int main(){
             {1,0,1}
     };
     cout << s.maxDistance(grid) << endl;
-
-
 }
