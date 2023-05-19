@@ -32,3 +32,5 @@ int main(){
     cin >> path;
     cout << s.noOfWays(path, n, steps) << endl;
 }
+
+// Not complete solution

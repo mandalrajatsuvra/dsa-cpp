@@ -47,12 +47,8 @@ public:
                     is_empty_left = true;
                     is_level_complete = false;
                 }
-
-
             }
-
         }
-
     }
 };
 

@@ -11,7 +11,7 @@ public:
         vector<bool> visited(n, false);
         vector<int> v1;
         vector<int> v2;
-        dfs(node1, edges, visited, v1);+
+        dfs(node1, edges, visited, v1);
         dfs(node2, edges, visited, v2);
         unordered_map<int, int> mp;
         for(int i=0; i< v1.size(); i++){

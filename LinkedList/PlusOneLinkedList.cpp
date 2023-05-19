@@ -1,9 +1,7 @@
 #include "iostream"
- using namespace std;
+using namespace std;
 
-
-
- struct ListNode {
+struct ListNode {
     int val;
     ListNode *next;
     ListNode() : val(0), next(nullptr) {}
@@ -15,7 +13,6 @@ public:
     ListNode* plusOne(ListNode* head) {
 
     }
-
     pair<ListNode*, int> solve(ListNode* head, ListNode* head_ref){
         if(head == nullptr){
             return {head, 0};
