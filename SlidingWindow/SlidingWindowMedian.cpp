@@ -38,103 +38,28 @@ using  namespace std;
 class Solution {
 public:
     vector<double> medianSlidingWindow(vector<int>& nums, int k) {
-        vector<double> v;
-        auto minHeapComp = [](pair<int, int> a, pair<int, int> b){
-            if(a.first == b.first){
-                return true;
-            }
-            return a.second < b.second ? true: false;
-        };
-        auto maxHeapComp = [](pair<int, int> a, pair<int, int> b){
-            if(a.first == b.first){
-                return true;
-            }
-           return a.second > b.second ? true: false;
-        };
-        set<pair<int, int>, decltype(maxHeapComp)> maxHeap{maxHeapComp};
-        set<pair<int, int>, decltype(minHeapComp)> minHeap{minHeapComp};
-
-        int i =0;
-        int j = 0;
-        while (j < nums.size()){
-            if(maxHeap.size() == minHeap.size()){
-                if(maxHeap.empty()) {
-                    maxHeap.insert({j, nums[j]});
-                }else if(nums[j] < minHeap.begin()->second){
-                    maxHeap.insert({j, nums[j]});
-                }else{
-                    auto min = minHeap.begin();
-                    minHeap.erase(min);
-                    maxHeap.insert(*min);
-                    minHeap.insert({j, nums[j]});
-                }
-            }else if(maxHeap.size() > minHeap.size()){
-                if(nums[j] < maxHeap.begin()->second){
-                    auto max = maxHeap.begin();
-                    maxHeap.erase(max);
-                    minHeap.insert(*max);
-                    maxHeap.insert({j, nums[j]});
-                }else{
-                    minHeap.insert({j,nums[j]});
-                }
-
-            }
-
-            if(j-i +1 < k){
-                j++;
-            }else if(j-i+1 == k){
-                if(k%2 == 0){
-                    v.push_back(static_cast<double>(maxHeap.begin()->second) + static_cast<double>(minHeap.begin()->second)/2);
-                }else{
-                    v.push_back(static_cast<double>(maxHeap.begin()->second));
-                }
-                pair<int, int> iThPair = {i, nums[i]};
-                if(minHeap.find(iThPair) != minHeap.end()){
-                    minHeap.erase(iThPair);
-                }else{
-                    maxHeap.erase(iThPair);
-                }
-
-                if(maxHeap.size() > minHeap.size()){
-                    auto max = minHeap.begin();
-                    maxHeap.erase(max);
-                    minHeap.insert(*max);
-                }
-                if(maxHeap.size() < minHeap.size() ){
-                    auto min = minHeap.begin();
-                    minHeap.erase(min);
-                    maxHeap.insert(*min);
-                }
-                i++;
-                j++;
-            }
-
-
-
-            auto it = maxHeap.begin();
-            while (it!= maxHeap.end()){
-                cout << it->second << "  ";
-                it ++;
-            }
-            cout<< endl;
-
-            it = minHeap.begin();
-            while (it!= minHeap.end()){
-                cout << it->second << "  ";
-                it ++;
-            }
-            cout<< endl;
-
+        vector<double> vt;
+        multiset<int> minHeap;
+        for(int i=0; i< nums.size(); i++){
+            minHeap.insert(nums[i]);
         }
-        return v;
+        minHeap.erase(minHeap.find(3));
+        cout << minHeap.size();
+
+        return vt;
     }
 };
 
 int main(){
     Solution s;
-    vector<int> v{1,3,-1,-3,5,3,6,7};
-    vector<double> res = s.medianSlidingWindow(v, 3);
-    for(int x: res){
+    vector<int> v{3,3,3,3,5,3,3,7};
+    vector<int> vt;
+    vt.push_back(1);
+    vt.push_back(2);
+    vt.insert(vt.end(), v.begin(), v.end());
+
+    //vector<double> res = s.medianSlidingWindow(v, 3);
+    for(int x: vt){
         cout << x << " ";
     }
     cout << endl;
